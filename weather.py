@@ -2,7 +2,6 @@ import requests
 import json
 import os
 from flask import Flask, jsonify, render_template, request, send_from_directory
-# form geopy.geocoders import Nominatim
 app = Flask(__name__)
 
 grad = {
@@ -15,10 +14,6 @@ APIKEY = "18db835d2781d5228f5fdf95cd903d13"
 forecastexclude = "minutly,daily"
 
 def api_call_stadt():
-    """
-        api_call_stadt: requests the openweatherapi with a city as location
-    """
-
     stadt         = request.args["stadt"] if request.args.__contains__("stadt") else ""
     units         = request.args['units'] if request.args.__contains__('units') else "metric"
 
@@ -27,6 +22,7 @@ def api_call_stadt():
     data["grad"]  = grad.get(units)
     data["name"]    = cords["name"] if cords["cod"] == 200 else ""
     data["cod"]     = cords["cod"]
+    data["curtemp"] = int(data["current"]["temp"])
     return data
 
 def api_call_position():
@@ -39,14 +35,17 @@ def api_call_position():
     data["grad"]    = grad.get(units)
     data["name"]    = cords["name"] if cords["cod"] == 200 else ""
     data["cod"]     = cords["cod"]
+    data["curtemp"] = int(data["current"]["temp"])
     return data
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
     if request.args.__contains__("stadt"):
         data = api_call_stadt()
-    else:
+    elif request.args.__contains__("position"):
         data = api_call_position()
+    else:
+        data = 400
     return render_template("index.html", data=data)
 
 @app.route('/favicons/favicon256.png')

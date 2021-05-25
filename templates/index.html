@@ -28,16 +28,16 @@
 
         <h3>{{data["name"]}}</h3>
         {%if data["cod"] == 200%}
-        Die Temperatur ist: {{data["current"]["temp"]}}{{data["grad"]}}<br>
+        Die Temperatur ist: {{data["curtemp"]}}{{data["grad"]}} <br>
         Der Luftdruck ist: {{data["current"]["pressure"]}} hPa <br>
-        Luftfeuchtigkeit ist: {{data["hourly"][0]["humidity"]}}%
+        Luftfeuchtigkeit ist: {{data["hourly"][0]["humidity"]}}% <br>
         {%endif%}
 
-        {%if data["cod"] == "404":%}
+        {%if data["cod"] == "404"%}
         Diese Stadt gibt es nicht.       
         {%endif%}
 
-        {%if data["cod"] == "400":%}
+        {%if data["cod"] == "400"%}
         Geben sie eine Stadt an.      
         {%endif%}
     </td>
