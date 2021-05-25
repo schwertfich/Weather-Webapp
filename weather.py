@@ -22,7 +22,7 @@ def api_call_stadt():
     data["grad"]  = grad.get(units)
     data["name"]    = cords["name"] if cords["cod"] == 200 else ""
     data["cod"]     = cords["cod"]
-    data["curtemp"] = int(data["current"]["temp"])
+    data["curtemp"] = int(data["current"]["temp"]) if cords["cod"] == 200 else ""
     return data
 
 def api_call_position():
@@ -35,7 +35,7 @@ def api_call_position():
     data["grad"]    = grad.get(units)
     data["name"]    = cords["name"] if cords["cod"] == 200 else ""
     data["cod"]     = cords["cod"]
-    data["curtemp"] = int(data["current"]["temp"])
+    data["curtemp"] = int(data["current"]["temp"]) if cords["cod"] == 200 else ""
     return data
 
 @app.route("/", methods=['GET', 'POST'])
