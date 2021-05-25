@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Wetterbericht</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicons/favicon256.png') }}">
+        <link rel= "stylesheet" href= "{{ url_for('static',filename='styles/styles.css') }}">
+</head>
+
+<body>
+<table style="width: 100%; height: 100%;" border="0px">
+    <tr>
+        <td style="width: 20%;"></td>
+        <td>
+        <h1>Wetterbericht</h1>
+        <form action="/" method="GET">
+            <input type="text" name="stadt" placeholder=" Hier Stadt eingeben." required autofocus> <br>
+
+            <label for="units">Einheit:</label>
+            <select id="units" name="units">
+              <option value="metric">Metric</option>
+              <option value="imperial">Fahrenheit</option>
+              <option value="standart">Kelvin</option>
+            </select>
+            <input type="submit" value="SENDEN">
+        </form>
+        <button id="cords" onclick=getLocation()>Koordinaten</button>
+
+        <h3>{{data["name"]}}</h3>
+        {%if data["cod"] == 200%}
+        Die Temperatur ist: {{data["current"]["temp"]}}{{data["grad"]}}<br>
+        Der Luftdruck ist: {{data["current"]["pressure"]}} hPa <br>
+        Luftfeuchtigkeit ist: {{data["hourly"][0]["humidity"]}}%
+        {%endif%}
+
+        {%if data["cod"] == "404":%}
+        Diese Stadt gibt es nicht.       
+        {%endif%}
+
+        {%if data["cod"] == "400":%}
+        Geben sie eine Stadt an.      
+        {%endif%}
+    </td>
+    </tr>
+</table>
+</body>
+<script type=text/javascript src="{{ url_for('static', filename='js/main.js') }}"></script>
+</html>
