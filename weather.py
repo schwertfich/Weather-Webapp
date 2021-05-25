@@ -2,7 +2,7 @@ import requests
 import json
 import os
 from flask import Flask, jsonify, render_template, request, send_from_directory
-
+# form geopy.geocoders import Nominatim
 app = Flask(__name__)
 
 grad = {
