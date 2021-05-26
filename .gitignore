@@ -165,11 +165,11 @@ Thumbs.db
 .ionide
 
 ### Ignore all Testfiles ###
-ztest/
 /ztest
 
 ### Ignore HTTPS certificates ###
-certificate/
 /certificate
 
+### Ignore apikey ###
+apikey.txt
 # End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode
