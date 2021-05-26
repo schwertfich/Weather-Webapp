@@ -10,10 +10,14 @@ grad = {
     "metric"  : "°C"
 }
 
+<<<<<<< HEAD
 APIKEY = ""
 with open("apikey.txt", "r") as f:
   APIKEY = f.read()
 
+=======
+APIKEY = "YOUROPENWEATHERTOKEN"
+>>>>>>> 5dcd58fc6e7867822f7b1235cfd9e814c6321320
 forecastexclude = "minutly,daily"
 language = "de"
 
