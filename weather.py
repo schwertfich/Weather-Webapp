@@ -10,7 +10,7 @@ grad = {
     "metric"  : "°C"
 }
 
-APIKEY = "18db835d2781d5228f5fdf95cd903d13"
+APIKEY = "YOUROPENWEATHERTOKEN"
 forecastexclude = "minutly,daily"
 
 def api_call_stadt():
