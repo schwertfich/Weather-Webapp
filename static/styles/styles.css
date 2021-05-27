@@ -1,3 +1,25 @@
+*,*:after,*:before{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
 body {
     background-color: rgb(229, 231, 227);
+    font-family: arial;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 100vh;
+}
+h4{
+    text-align: center;
+}
+/* styling for forecast chart */
+.container{
+    width: 90%;   
+}
+#canvas{
+    width: 100%
 }
