@@ -40,9 +40,17 @@
         {%if data["cod"] == "400"%}
         Geben sie eine Stadt an.      
         {%endif%}
+
+        <div class="container">
+            <h4>Forecast</h4>
+            <div>
+                <canvas id="canvas"></canvas>
+            </div>
+        </div>
     </td>
     </tr>
 </table>
 </body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@3.3.0/dist/chart.min.js"></script>
 <script type=text/javascript src="{{ url_for('static', filename='js/main.js') }}"></script>
 </html>
