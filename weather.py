@@ -2,6 +2,7 @@ import requests
 import json
 import os
 from flask import Flask, jsonify, render_template, request, send_from_directory
+
 app = Flask(__name__)
 
 grad = {
@@ -52,7 +53,7 @@ def index():
         data = 400
     return render_template("index.html", data=data)
 
-@app.route('/favicons/favicon256.png')
+@app.route('/favicons/favicon256-von-icons8.png')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static/facivons'),
                                'favicon256-von-icons8.png', mimetype='image/png')
